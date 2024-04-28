@@ -36,7 +36,6 @@ namespace PTZController
 
         private void InitializeHttpClient()
         {
-            // Set up HttpClient headers globally if needed
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
@@ -67,7 +66,7 @@ namespace PTZController
                 { "szCmd", serializedCommand }
             };
             Console.WriteLine(serializedCommand);
-            var content = new FormUrlEncodedContent(data); // Encoding data as URL-encoded form content
+            var content = new FormUrlEncodedContent(data);
             try
             {
                 HttpResponseMessage response = await client.PostAsync(url, content);
@@ -166,6 +165,9 @@ namespace PTZController
 
         private async void OnGlobalKeyDown(int vkCode)
         {
+            if (SettingsWindow.keysLocked)
+                return;
+
             if (vkCode == KEY_UP && currentPtzCommand != "up_start")
             {
                 currentPtzCommand = "up_start";
@@ -200,6 +202,9 @@ namespace PTZController
 
         private async void OnGlobalKeyUp(int vkCode)
         {
+            if (SettingsWindow.keysLocked)
+                return;
+
             if ((vkCode == KEY_DOWN || vkCode == KEY_UP || vkCode == KEY_LEFT || vkCode == KEY_RIGHT || vkCode == KEY_PLUS || vkCode == KEY_MINUS) && currentPtzCommand != null)
             {
                 string stopCommand = currentPtzCommand.Replace("_start", "_stop");
@@ -219,6 +224,13 @@ namespace PTZController
             var settingsWindow = new SettingsWindow();
             settingsWindow.Owner = this;
             settingsWindow.Show();
+        }
+
+        private void Menu_About_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.Show();
         }
     }
 }

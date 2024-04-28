@@ -21,6 +21,7 @@ namespace PTZController
     {
         public static string ip = "192.168.0.100";
         public static int port = 80;
+        public static bool keysLocked = false;
 
         public SettingsWindow()
         {
@@ -28,12 +29,14 @@ namespace PTZController
 
             txtCameraIP.Text = ip;
             txtPort.Text = port.ToString();
+            chkLockKeys.IsChecked = keysLocked;
         }
 
         private void Save_Btn_Clicked(object sender, RoutedEventArgs e)
         {
             SettingsWindow.ip = txtCameraIP.Text;
             SettingsWindow.port = Convert.ToInt32(txtPort.Text);
+            SettingsWindow.keysLocked = (bool)chkLockKeys.IsChecked;
         }
     }
 }
