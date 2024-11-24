@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PTZController"
         mc:Ignorable="d"
-        Title="Settings" WindowStartupLocation="CenterOwner" Height="265" Width="230">
-    <StackPanel>
+        Title="Settings" WindowStartupLocation="CenterOwner" Height="298" Width="230">
+    <StackPanel Height="265" VerticalAlignment="Top">
         <Label Content="Camera IP:" HorizontalAlignment="Left" Margin="10"/>
         <TextBox x:Name="txtCameraIP" Text="192.168.0.100" Margin="10"/>
-        <CheckBox Content=": Lock Keys" x:Name="chkLockKeys" />
+        <CheckBox Content=": Lock Keys" Name="chkLockKeys" />
         <Label Content="Port:" HorizontalAlignment="Left" Margin="10"/>
         <TextBox x:Name="txtPort" Text="80"/>
+        <Label Content="Speed:" HorizontalAlignment="Left" Margin="10"/>
+        <TextBox x:Name="txtPtzSpeed" Text="80"/>
         <Button Click="Save_Btn_Clicked" Content="Save"/>
     </StackPanel>
 </Window>

@@ -11,6 +11,7 @@
             <Menu DockPanel.Dock="Top" Background="White" BorderBrush="Black" BorderThickness="1">
                 <MenuItem Header="_Settings" Click="Menu_Settings_Click" BorderBrush="DarkGray" ></MenuItem>
                 <MenuItem Header="_About" Click="Menu_About_Click" BorderBrush="DarkGray" ></MenuItem>
+                <MenuItem Header="_Live" Click="Menu_Live_Click" Name="btnLive" BorderBrush="DarkGray" ></MenuItem>
             </Menu>
         </StackPanel>
         <Label Content="PTZ Camera Control Interface" HorizontalAlignment="Center" Margin="10"/>

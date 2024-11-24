@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PTZController"
         mc:Ignorable="d"
-        Title="About" Height="60" WindowStartupLocation="CenterOwner" Width="248">
+        Title="About" Height="92" WindowStartupLocation="CenterOwner" Width="248">
     <StackPanel>
         <TextBlock Width="213"><Run Text="PTZ Controller software for AViPAS PTZ"/><LineBreak/><Run Text="Written by Caleb Harrell"/></TextBlock>
     </StackPanel>
